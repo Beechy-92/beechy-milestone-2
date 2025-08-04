@@ -18,5 +18,13 @@
 | Logic + Interactivity | JavaScript                     |
 | Suggestions API       | OpenAI |
 
-
+## Testing
+  ### Javascript Testing
+  * Scale button pressed created an alert that no data was entered (Add photo)
+  * Add ingredients button pressed with no data resulted in no alert (Add photo)
+  * Add ingredients button pressed with no data resulted in no alert again (Add photo)
+  * Add ingredients button pressed with no data resulted in alert (Add photo)
+  * Numbers only test failed because "e" is a scientific numerical value (Add photo)
+  * Numbers only test passed (Add photo)
+  * Input test passed before and after (Add photo)
 # beechy-milestone-2
