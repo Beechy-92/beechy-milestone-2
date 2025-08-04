@@ -8,26 +8,20 @@ function addIngredient() {
     return;
   }
 
-    // Create a new ingredient input row
-  const newIngredient = document.createElement("div");
-  newIngredient.classList.add("ingredient");
+    // Kepps original ingredients values visable
+  const newRow = document.createElement("div");
+  newRow.className = "ingredient";
+  newRow.innerHTML = `
+    <input type="text" class="ingredient-name" placeholder="e.g. Sugar" required />
+    <input type="number" class="ingredient-amount" placeholder="e.g. 100 (grams)" required />
+    <small class="original-display" style="margin-left: 10px; color: gray;"></small>
+  `;
 
-  const newName = document.createElement("input");
-  newName.type = "text";
-  newName.className = "ingredient-name";
-  newName.placeholder = "e.g. Flour";
-  newName.required = true;
-
-  const newAmount = document.createElement("input");
-  newAmount.type = "number";
-  newAmount.className = "ingredient-amount";
-  newAmount.placeholder = "e.g. 200 (grams)";
-  newAmount.required = true;
-
-  newIngredient.appendChild(newName);
-  newIngredient.appendChild(newAmount);
-  document.getElementById("ingredients-list").appendChild(newIngredient);
+  document.getElementById("ingredients-list").appendChild(newRow);
 }
+
+document.getElementById("add-ingredient-btn").addEventListener("click", addIngredient);
+
 
 document.getElementById("recipe-form").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -56,15 +50,19 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
       return;
     }
   }
-
   amounts.forEach(function (input) {
     const originalAmount = parseFloat(input.getAttribute("data-original")) || parseFloat(input.value);
     const scaledAmount = (originalAmount / originalServings) * newServings;
 
     input.setAttribute("data-original", originalAmount);
-     // Save original for future use
     input.value = scaledAmount.toFixed(2);
-     // Round to 2 decimal places
+
+    // Shows the original value beside the input
+    const displayEl = input.nextElementSibling;
+    if (displayEl && displayEl.classList.contains("original-display")) {
+      displayEl.textContent = `Original: ${originalAmount}`;
+    }
+  
   });
 });
 
