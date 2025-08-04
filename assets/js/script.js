@@ -29,9 +29,9 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
 
   const originalServings = parseFloat(document.getElementById("original-servings").value);
   const newServings = parseFloat(document.getElementById("new-servings").value);
-
-  // Get all ingredient amount inputs
+    // Get all ingredient amount inputs  
   const amounts = document.querySelectorAll(".ingredient-amount");
+
 
   if (isNaN(originalServings) || originalServings <= 0) {
     alert("Please enter a valid original number of servings.");
@@ -51,17 +51,27 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
     }
   }
   amounts.forEach(function (input) {
-    const originalAmount = parseFloat(input.getAttribute("data-original")) || parseFloat(input.value);
-    const scaledAmount = (originalAmount / originalServings) * newServings;
+    if (!input.value.trim()) return; // Skip empty inputs
 
+    // Get original amount from data attribute or input value
+  let originalAmount = input.getAttribute("data-original");
+
+  if (!originalAmount) {
+    originalAmount = parseFloat(input.value);
     input.setAttribute("data-original", originalAmount);
-    input.value = scaledAmount.toFixed(2);
+  } else {
+    originalAmount = parseFloat(originalAmount);
+  }
 
-    // Shows the original value beside the input
-    const displayEl = input.nextElementSibling;
-    if (displayEl && displayEl.classList.contains("original-display")) {
-      displayEl.textContent = `Original: ${originalAmount}`;
-    }
+  // Scale from original amount
+  const scaledAmount = (originalAmount / originalServings) * newServings;
+  input.value = scaledAmount.toFixed(2);
+
+  // Update visible original display
+  const displayEl = input.nextElementSibling;
+  if (displayEl && displayEl.classList.contains("original-display")) {
+    displayEl.textContent = `Original: ${originalAmount}`;
+  }
   
   });
 });
