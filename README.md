@@ -27,4 +27,8 @@
   * Numbers only test failed because "e" is a scientific numerical value (Add photo)
   * Numbers only test passed (Add photo)
   * Input test passed before and after (Add photo)
+  
+  ### CSS Testing
+  * Basic CSS testing to make sure i have set up my style.css file correctly (Add photo)
+  * Inital concept of my CSS, main problem is the ingredient box sizing (Add photo)
 # beechy-milestone-2
