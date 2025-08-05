@@ -31,4 +31,5 @@
   ### CSS Testing
   * Basic CSS testing to make sure i have set up my style.css file correctly (Add photo)
   * Inital concept of my CSS, main problem is the ingredient box sizing (Add photo)
+  * Inital concept of my CSS fixed ingredients box (Add photo)
 # beechy-milestone-2
