@@ -33,4 +33,8 @@
   * Basic CSS testing to make sure i have set up my style.css file correctly (Add photo)
   * Inital concept of my CSS, main problem is the ingredient box sizing (Add photo)
   * Inital concept of my CSS fixed ingredients box (Add photo)
+
+  ### UX Testing
+  * the location of the new number of people doesn't seem to flow very well, so im going to move this towards the top next to the original, this should improve the UI and therfore improving the UX (Add photo)
+  
 # beechy-milestone-2
