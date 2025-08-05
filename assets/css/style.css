@@ -28,12 +28,18 @@ form label {
 form input[type="text"],
 form input[type="number"] {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 12px;
+    margin-top: 8px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
     box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* Ingredients Container */
+#ingredients-list {
+    margin-top: 15px;
 }
 
 /* ingrefient rows */
@@ -41,24 +47,36 @@ form input[type="number"] {
     display: flex;
     gap: 10px;
     align-items: centre;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
 }
 
 /* Ingredient Input */
 .ingredient {
-    flex: 1;
+    flex: 1 1 45%;
+    min-width: 120px;
+}
+
+/* Original display (gray text) */
+.original-display {
+  font-size: 0.85rem;
+  color: gray;
+  margin-left: 5px;
+  flex-basis: 100%;
 }
 
 /* Buttons */
 button {
-  display: inline-block;
+  display: block;
   margin-top: 15px;
-  padding: 10px 15px;
+  padding: 12px 20px;
+  font-size: 1rem;
   background-color: #57725d;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  width: 100%;
 }
 
 button#add-ingredient-btn {
@@ -75,5 +93,15 @@ button:hover {
   .ingredient {
     flex-direction: column;
     align-items: stretch;
+  }
+  
+  .ingredient input {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .original-display {
+    margin-left: 0;
+    margin-top: 4px;
   }
 }
