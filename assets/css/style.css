@@ -16,3 +16,64 @@ form#recipe-form {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Label */
+form label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Input Fields */
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* ingrefient rows */
+.ingredient {
+    display: flex;
+    gap: 10px;
+    align-items: centre;
+    margin-bottom: 10px;
+}
+
+/* Ingredient Input */
+.ingredient {
+    flex: 1;
+}
+
+/* Buttons */
+button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #57725d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#add-ingredient-btn {
+  background-color: #007bff;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  .ingredient {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
