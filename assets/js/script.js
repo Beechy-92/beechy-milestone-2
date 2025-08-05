@@ -76,6 +76,44 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
   });
 });
 
+// Live scaling as user types new servings
+document.getElementById("new-servings").addEventListener("input", function () {
+  const originalServings = parseFloat(document.getElementById("original-servings").value);
+  const newServings = parseFloat(this.value);
+
+  // Check if both originalServings and newServings are valid numbers
+  if (isNaN(originalServings) || originalServings <= 0 || isNaN(newServings) || newServings <= 0) {
+    return;
+  }
+
+  const amounts = document.querySelectorAll(".ingredient-amount");
+
+  amounts.forEach(function (input) {
+    let originalAmount = input.getAttribute("data-original");
+
+    // If original amount is not set, use current input value
+    if (!originalAmount) {
+      originalAmount = parseFloat(input.value);
+      if (!isNaN(originalAmount)) {
+        input.setAttribute("data-original", originalAmount);
+      } else {
+        return; // Skip if input is empty or invalid
+      }
+    } else {
+      originalAmount = parseFloat(originalAmount);
+    }
+
+    const scaledAmount = (originalAmount / originalServings) * newServings;
+    input.value = scaledAmount.toFixed(2);
+
+    // Update display
+    const displayEl = input.nextElementSibling;
+    if (displayEl && displayEl.classList.contains("original-display")) {
+      displayEl.textContent = `Original: ${originalAmount}`;
+    }
+  });
+});
+
 // New: block 'e', 'E', '+', '-' in number inputs
 ["original-servings", "new-servings"].forEach(function(id) {
   document.getElementById(id).addEventListener("keydown", function(e) {
