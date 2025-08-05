@@ -122,3 +122,17 @@ document.getElementById("new-servings").addEventListener("input", function () {
     }
   });
 });
+
+// Restore to original amounts
+document.getElementById("reset-ingredients").addEventListener("click", function () {
+  const amounts = document.querySelectorAll(".ingredient-amount");
+
+  amounts.forEach(function (input) {
+    const original = input.getAttribute("data-original");
+    if (original) {
+      input.value = parseFloat(original).toFixed(2);
+    }
+  });
+
+  document.getElementById("new-servings").value = "";
+});
