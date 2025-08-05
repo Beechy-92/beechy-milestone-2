@@ -12,12 +12,17 @@
   <input type="number" id="original-servings" required />
 
   <div id="ingredients-list">
-    <div class="ingredient">
-      <input type="text" class="ingredient-name" placeholder="e.g. Flour" required />
-      <input type="number" class="ingredient-amount" placeholder="e.g. 200 (grams)" required />
-      <small class="original-display" style="margin-left: 10px; color: gray;"></small>
-    </div>
+  <div class="ingredient">
+    <input type="text" class="ingredient-name" placeholder="e.g. Flour" required />
+
+    <!-- Original input: user types the amount here -->
+    <input type="number" class="ingredient-original" placeholder="e.g. 200" required />
+
+    <!-- Scaled output: this gets updated live by JS -->
+    <input type="text" class="ingredient-scaled" placeholder="Scaled amount" readonly />
+
   </div>
+</div>
 
   <button type="button" id="add-ingredient-btn">Add Ingredient</button>
   <label>New number of people:</label>
