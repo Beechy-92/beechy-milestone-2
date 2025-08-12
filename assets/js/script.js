@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 function addIngredient() {
   const lastIngredient = document.querySelector("#ingredients-list .ingredient:last-child");
   const nameInput = lastIngredient.querySelector(".ingredient-name");
@@ -95,4 +97,45 @@ document.getElementById("reset-ingredients").addEventListener("click", function 
   scaled.forEach(input => input.value = "");
 
   document.getElementById("new-servings").value = "";
+});
+
+const suggestionData = {
+  "sugar": "Reduce sugar slightly if making for kids to lower sweetness.",
+  "butter": "Soften butter before mixing for better texture.",
+  "flour": "Sift flour to avoid lumps in the batter.",
+  "egg": "Use room temperature eggs for fluffier bakes.",
+  "milk": "Warm milk slightly to help yeast rise faster."
+};
+
+function updateSuggestions() {
+  const ingredientNames = Array.from(document.querySelectorAll(".ingredient-name"))
+    .map(input => input.value.trim().toLowerCase());
+
+  console.log("Ingredients typed:", ingredientNames);
+
+  const list = document.getElementById("suggestions-list");
+  list.innerHTML = "";
+
+  ingredientNames.forEach(name => {
+    for (const key in suggestionData) {
+      if (name.includes(key)) {
+        const li = document.createElement("li");
+        li.textContent = suggestionData[key];
+        list.appendChild(li);
+      }
+    }
+  });
+
+  if (!list.hasChildNodes()) {
+    const li = document.createElement("li");
+    li.textContent = "No suggestions yet — try adding more ingredients.";
+    list.appendChild(li);
+  }
+}
+
+document.addEventListener("input", function(e) {
+  if (e.target.classList.contains("ingredient-name")) {
+    updateSuggestions();
+  }
+});
 });
