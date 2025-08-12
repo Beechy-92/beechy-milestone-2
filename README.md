@@ -28,6 +28,7 @@
   * Numbers only test passed (Add photo)
   * Input test passed before and after (Add photo)
   * Live scaling unable to be tested as my original input needs to be seprated from scaled display (Add photo)
+  * Local Smart suggestion introduced and tested (Add photo)
   
   ### CSS Testing
   * Basic CSS testing to make sure i have set up my style.css file correctly (Add photo)
