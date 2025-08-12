@@ -1,7 +1,7 @@
 function addIngredient() {
   const lastIngredient = document.querySelector("#ingredients-list .ingredient:last-child");
   const nameInput = lastIngredient.querySelector(".ingredient-name");
-  const amountInput = lastIngredient.querySelector(".ingredient-amount");
+  const amountInput = lastIngredient.querySelector(".ingredient-original");
 
   if (nameInput.value.trim() === "" || amountInput.value.trim() === "") {
     alert("Please enter both an ingredient name and amount before adding a new one.");
@@ -13,8 +13,8 @@ function addIngredient() {
   newRow.className = "ingredient";
   newRow.innerHTML = `
     <input type="text" class="ingredient-name" placeholder="e.g. Sugar" required />
-    <input type="number" class="ingredient-amount" placeholder="e.g. 100 (grams)" required />
-    <small class="original-display" style="margin-left: 10px; color: gray;"></small>
+    <input type="number" class="ingredient-original" placeholder="e.g. 100 (grams)" required />
+    <input type="text" class="ingredient-scaled" placeholder="Scaled amount" readonly />
   `;
 
   document.getElementById("ingredients-list").appendChild(newRow);
@@ -29,8 +29,10 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
 
   const originalServings = parseFloat(document.getElementById("original-servings").value);
   const newServings = parseFloat(document.getElementById("new-servings").value);
+
     // Get all ingredient amount inputs  
-  const amounts = document.querySelectorAll(".ingredient-amount");
+  const originals = document.querySelectorAll(".ingredient-original");
+  const scaled = document.querySelectorAll(".ingredient-scaled");
 
 
   if (isNaN(originalServings) || originalServings <= 0) {
@@ -43,36 +45,16 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
     return;
   }
 
-  for (let input of amounts) {
+  // Scale each ingredient
+  originals.forEach(function (input, index) {
     const amountValue = parseFloat(input.value);
     if (isNaN(amountValue) || amountValue <= 0) {
       alert("Please make sure all ingredient amounts are valid positive numbers.");
       return;
     }
-  }
-  amounts.forEach(function (input) {
-    if (!input.value.trim()) return; // Skip empty inputs
 
-    // Get original amount from data attribute or input value
-  let originalAmount = input.getAttribute("data-original");
-
-  if (!originalAmount) {
-    originalAmount = parseFloat(input.value);
-    input.setAttribute("data-original", originalAmount);
-  } else {
-    originalAmount = parseFloat(originalAmount);
-  }
-
-  // Scale from original amount
-  const scaledAmount = (originalAmount / originalServings) * newServings;
-  input.value = scaledAmount.toFixed(2);
-
-  // Update visible original display
-  const displayEl = input.nextElementSibling;
-  if (displayEl && displayEl.classList.contains("original-display")) {
-    displayEl.textContent = `Original: ${originalAmount}`;
-  }
-  
+    const scaledAmount = (amountValue / originalServings) * newServings;
+    scaled[index].value = scaledAmount.toFixed(2);
   });
 });
 
@@ -86,31 +68,15 @@ document.getElementById("new-servings").addEventListener("input", function () {
     return;
   }
 
-  const amounts = document.querySelectorAll(".ingredient-amount");
+  const originals = document.querySelectorAll(".ingredient-original");
+  const scaled = document.querySelectorAll(".ingredient-scaled");
 
-  amounts.forEach(function (input) {
-    let originalAmount = input.getAttribute("data-original");
+  originals.forEach(function (input, index) {
+    const amountValue = parseFloat(input.value);
+    if (isNaN(amountValue)) return;
 
-    // If original amount is not set, use current input value
-    if (!originalAmount) {
-      originalAmount = parseFloat(input.value);
-      if (!isNaN(originalAmount)) {
-        input.setAttribute("data-original", originalAmount);
-      } else {
-        return; // Skip if input is empty or invalid
-      }
-    } else {
-      originalAmount = parseFloat(originalAmount);
-    }
-
-    const scaledAmount = (originalAmount / originalServings) * newServings;
-    input.value = scaledAmount.toFixed(2);
-
-    // Update display
-    const displayEl = input.nextElementSibling;
-    if (displayEl && displayEl.classList.contains("original-display")) {
-      displayEl.textContent = `Original: ${originalAmount}`;
-    }
+    const scaledAmount = (amountValue / originalServings) * newServings;
+    scaled[index].value = scaledAmount.toFixed(2);
   });
 });
 
@@ -123,16 +89,10 @@ document.getElementById("new-servings").addEventListener("input", function () {
   });
 });
 
-// Restore to original amounts
+// Reset button: clear scaled amounts + new servings
 document.getElementById("reset-ingredients").addEventListener("click", function () {
-  const amounts = document.querySelectorAll(".ingredient-amount");
-
-  amounts.forEach(function (input) {
-    const original = input.getAttribute("data-original");
-    if (original) {
-      input.value = parseFloat(original).toFixed(2);
-    }
-  });
+  const scaled = document.querySelectorAll(".ingredient-scaled");
+  scaled.forEach(input => input.value = "");
 
   document.getElementById("new-servings").value = "";
 });
