@@ -52,7 +52,7 @@ form input[type="number"] {
 }
 
 /* Ingredient Input */
-.ingredient {
+.ingredient input {
     flex: 1 1 45%;
     min-width: 120px;
 }
@@ -121,4 +121,22 @@ button:hover {
 
 #suggestions-list {
   padding-left: 20px;
+}
+
+.servings-inputs {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.serving-group {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.serving-group label {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
 }

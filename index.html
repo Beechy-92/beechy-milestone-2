@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
     <form id="recipe-form">
+  <div class="servings-inputs">
+    <div class="serving-group">
+      <label for="original-servings">Original number of people:</label>
+      <input type="number" id="original-servings" required />
+    </div>
+
+    <div class="serving-group">
+      <label for="new-servings">New number of people:</label>
+      <input type="number" id="new-servings" required />
+    </div>
+  </div>
+
   <label>Recipe Conversion Table</label>
-  <input type="number" id="original-servings" required />
 
   <div id="ingredients-list">
-  <div class="ingredient">
+     <div class="ingredient">
     <input type="text" class="ingredient-name" placeholder="e.g. Flour" required />
-
-    <!-- Original input: user types the amount here -->
     <input type="number" class="ingredient-original" placeholder="e.g. 200" required />
-
-    <!-- Scaled output: this gets updated live by JS -->
     <input type="text" class="ingredient-scaled" placeholder="Scaled amount" readonly />
-
   </div>
-</div>
+  </div>
 
-<div id="suggestions-box">
-  <h3>Smart Suggestions</h3>
-  <ul id="suggestions-list"></ul>
-</div>
+  <div id="suggestions-box">
+    <h3>Smart Suggestions</h3>
+    <ul id="suggestions-list"></ul>
+  </div>
 
   <button type="button" id="add-ingredient-btn">Add Ingredient</button>
-  <label>New number of people:</label>
-  <input type="number" id="new-servings" required />
-
   <button type="submit">Scale Recipe</button>
-
   <button type="button" id="reset-ingredients">Reset</button>
-  
 </form>
+
+     
+    </form>
     <script src="/assets/js/script.js"></script>
-</body>
+  </body>
 </html>
