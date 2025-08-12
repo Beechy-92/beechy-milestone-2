@@ -35,6 +35,6 @@
   * Inital concept of my CSS fixed ingredients box (Add photo)
 
   ### UX Testing
-  * the location of the new number of people doesn't seem to flow very well, so im going to move this towards the top next to the original, this should improve the UI and therfore improving the UX (Add photo)
-  
+  * The location of the new number of people doesn't seem to flow very well, so im going to move this towards the top next to the original, this should improve the UI and therfore improving the UX (Add photo)
+  * Live scaling test passed (Add video)
 # beechy-milestone-2
