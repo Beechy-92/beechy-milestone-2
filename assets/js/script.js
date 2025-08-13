@@ -139,3 +139,26 @@ document.addEventListener("input", function(e) {
   }
 });
 });
+
+document.querySelectorAll('.form-control').forEach(input => {
+  input.addEventListener('focus', () => {
+    input.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+    input.style.borderColor = '#F6AE2D';
+    input.style.boxShadow = '0 0 8px rgba(246, 174, 45, 0.6)';
+  });
+
+  input.addEventListener('blur', () => {
+    input.style.borderColor = '';
+    input.style.boxShadow = '';
+  });
+});
+
+// Add focus and blur effects to all form controls
+document.querySelectorAll('.form-control').forEach(input => {
+  input.addEventListener('focus', () => {
+    input.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+    input.style.borderColor = '#F6AE2D';
+    input.style.boxShadow = '0 0 8px rgba(246, 174, 45, 0.6)';
+  });
+
+});
