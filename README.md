@@ -105,7 +105,39 @@ This project is a recipe scaling tool that allows users to input a recipe, inclu
 | - ... |
 +----------------------------------------------------+```
 
+---
 
+##Legend / Notes:##  
+
+###Recipe Name:### 
+- Input field for the recipe title.  
+
+###Original Servings / New Servings:### 
+- Input fields to scale ingredients.  
+
+###Ingredients Section:###
+
+  ####Ingredient Name:#### 
+  - Name of the ingredient.  
+
+  ####Original:#### 
+  - Quantity based on original servings.  
+
+  ####Scaled Amount:####
+  - Automatically calculated based on new servings.  
+
+###Buttons:###  
+  ####Add Ingredient:####
+  - Adds a new ingredient row.  
+  
+  ####Scale Recipe:####
+  - Calculates scaled amounts.  
+  
+  ####Reset:####
+  - Clears scaled amounts and new servings.  
+
+###Suggestions:###
+- Optional tips or alternatives based on entered ingredients.  
 
 
 # beechy-milestone-2
