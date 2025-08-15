@@ -53,6 +53,68 @@ This project is a recipe scaling tool that allows users to input a recipe, inclu
 
 ---
 
+## Development Life Cycle
+
+The development of **Beechy Milestone 2** followed a structured, iterative process to ensure functionality, usability, and maintainability.
+
+### 1. Planning & Research
+- Defined the core goal: Create a tool to scale recipes based on serving size.
+- Identified required features:
+  - Recipe name and ingredient inputs.
+  - Original vs new servings scaling.
+  - Local suggestions system.
+  - Optional API integration for tips.
+- Reviewed similar recipe scaling tools for inspiration.
+- Chose tech stack: HTML, CSS/Bootstrap, JavaScript, optional OpenAI API.
+
+### 2. Design
+- Created initial wireframe for layout. ![alt text](assets/images/wireframe-design-recipe-wizard.png) 
+- Designed a form-based interface with clearly separated sections for:
+  - Recipe info.
+  - Ingredient list.
+  - Scaling controls.
+  - Suggestions.
+- Considered responsive design for mobile and desktop.
+- Defined color scheme and basic typography.
+
+### 3. Development
+- **Phase 1:** HTML structure for form, ingredient rows, and suggestion area.
+- **Phase 2:** JavaScript logic for:
+  - Adding/removing ingredient rows.
+  - Scaling amounts based on serving size.
+  - Preventing invalid inputs.
+  - Providing local ingredient tips.
+- **Phase 3:** CSS/Bootstrap styling for responsive and clean layout.
+- **Phase 4:** Integration of suggestion system and live updates.
+- Frequent commits to GitHub with meaningful messages after each feature or fix.
+
+### 4. Testing
+- Conducted manual testing after each major feature:
+  - Input validation tests.
+  - Scaling formula verification.
+  - Live scaling functionality.
+  - UI/UX flow adjustments based on feedback.
+- Tested across browsers (Chrome, Firefox, Edge) and devices.
+- Logged testing outcomes with screenshots and videos (see Testing section).
+
+### 5. Deployment
+- Deployed to GitHub Pages for public access.
+- Verified responsiveness and functionality on live site.
+- Ensured all assets (images, videos, stylesheets) loaded correctly.
+
+### 6. Maintenance & Future Enhancements
+- Planned for possible API integration for advanced suggestions.
+- Ideas for future:
+  - Save and load recipes.
+  - User accounts to store preferences.
+  - Unit conversions (e.g., cups ↔ grams).
+  - Accessibility improvements.
+
+---
+
+## User Stories
+
+- **Step** – *As a home baker, I want to quickly scale my recipe ingredients so that I can make a cake for a larger party without manually calculating amounts.*  
 
 ## Testing
   ### Javascript Testing
