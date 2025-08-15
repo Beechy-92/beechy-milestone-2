@@ -138,7 +138,7 @@ document.addEventListener("input", function(e) {
     updateSuggestions();
   }
 });
-});
+
 
 document.querySelectorAll('.form-control').forEach(input => {
   input.addEventListener('focus', () => {
@@ -161,4 +161,5 @@ document.querySelectorAll('.form-control').forEach(input => {
     input.style.boxShadow = '0 0 8px rgba(246, 174, 45, 0.6)';
   });
 
+});
 });
