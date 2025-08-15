@@ -1,3 +1,6 @@
+# Beechy Milestone 2
+- [Recipe Wizard](https://beechy-92.github.io/beechy-milestone-2/)
+
 # Project Overview
 This project is a recipe scaling tool that allows users to input a recipe, including ingredients and serving size, and then scale the recipe for a different number of servings. It also provides local suggestions for ingredient preparation and improvements.
 
@@ -115,6 +118,8 @@ The development of **Beechy Milestone 2** followed a structured, iterative proce
 ## User Stories
 
 - **Steph** – *As a home baker, I want to quickly scale my recipe ingredients so that I can make a cake for a larger party without manually calculating amounts.*  
+- **Abby** – *As a busy senior manager, I want to reduce the serving size for my recipes so that I can prepare smaller meals and reduce food waste.*  
+- **Teresa** – *As an excellent cook from Hong Kong, I want the system to give me preparation tips for each ingredient so that I can adapt recipes to suit local tastes and cooking styles.*
 
 ## Testing
   ### Javascript Testing
