@@ -114,7 +114,7 @@ The development of **Beechy Milestone 2** followed a structured, iterative proce
 
 ## User Stories
 
-- **Step** – *As a home baker, I want to quickly scale my recipe ingredients so that I can make a cake for a larger party without manually calculating amounts.*  
+- **Steph** – *As a home baker, I want to quickly scale my recipe ingredients so that I can make a cake for a larger party without manually calculating amounts.*  
 
 ## Testing
   ### Javascript Testing
