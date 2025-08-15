@@ -56,24 +56,24 @@ This project is a recipe scaling tool that allows users to input a recipe, inclu
 
 ## Testing
   ### Javascript Testing
-  * Scale button pressed created an alert when no data was entered (Add photo)
-  * Add ingredients button pressed with no data resulted in no alert (Add photo)
-  * Add ingredients button pressed with no data resulted in no alert again (Add photo)
-  * Add ingredients button pressed with no data resulted in alert (Add photo)
-  * Numbers only test failed because "e" is a scientific numerical value (Add photo)
-  * Numbers only test passed (Add photo)
-  * Input test passed before and after (Add photo)
-  * Live scaling unable to be tested as my original input needs to be seprated from scaled display (Add photo)
-  * Local Smart suggestion introduced and tested (Add photo)
+  * Scale button pressed created an alert when no data was entered ![alt text](assets/images/scale-button-pressed-no-data-entered.png)
+  * Add ingredients button pressed with no data resulted in no alert ![alt text](assets/images/add-ing-button-no-alert-when-value-empty.png)
+  * Add ingredients button pressed with no data resulted in no alert again ![alt text](assets/images/add-ing-button-no-alert-again-test-two.png)
+  * Add ingredients button pressed with no data resulted in alert ![alt text](assets/images/add-ing-button-alerts-test-three.png)
+  * Numbers only test failed because "e" is a scientific numerical value ![alt text](assets/images/numbers-only-test-fail-e-numeric-notation.png)
+  * Numbers only test passed <img src="assets/images/numbers-only-test-pass.png" alt="Numbers only test passed" width="300">
+  * Input test passed before and after ![alt text](assets/images/input-full-test-one-before.png) ![alt text](assets/images/input-full-test-one-after.png)
+  * Live scaling unable to be tested as my original input needs to be seprated from scaled display ![alt text](assets/images/live-scaling-not-worked-oginput-scale-disp-needs-seperating.png)
+  * Local Smart suggestion introduced and tested ![alt text](assets/images/smart-suggestion-test-no-api-local-only.png)
   
   ### CSS Testing
-  * Basic CSS testing to make sure i have set up my style.css file correctly (Add photo)
-  * Inital concept of my CSS, main problem is the ingredient box sizing (Add photo)
-  * Inital concept of my CSS fixed ingredients box (Add photo)
+  * Basic CSS testing to make sure i have set up my style.css file correctly ![alt text](assets/images/css-test-body-form-container.png)
+  * Inital concept of my CSS, main problem is the ingredient box sizing ![alt text](assets/images/design-1-css-basic-form-ingredients-box-is-too-small.png)
+  * Inital concept of my CSS fixed ingredients box ![alt text](assets/images/design-1-css-basic-form-fixed-ing-box.png)
 
   ### UX Testing
-  * The location of the new number of people doesn't seem to flow very well, so im going to move this towards the top next to the original, this should improve the UI and therfore improving the UX (Add photo)
-  * Live scaling test passed (Add video)
+  * The location of the new number of people doesn't seem to flow very well, so im going to move this towards the top next to the original, this should improve the UI and therfore improving the UX ![alt text](assets/images/moving-new-number-of-people.png)
+  * Live scaling test passed <video controls src="assets/videos/live-scaling-test.mp4" title="Title"></video>
   
   **Key Design Notes**
 - Ingredient rows are dynamically added below the last entry  
@@ -82,7 +82,8 @@ This project is a recipe scaling tool that allows users to input a recipe, inclu
 - Buttons are positioned for clear user flow (Scale/Reset/Add Ingredient)  
 - Focus and blur effects highlight active inputs for better UX
 
-```+----------------------------------------------------+
+```
++----------------------------------------------------+
 | Recipe Name: [___________________] |
 +----------------------------------------------------+
 | Original Servings: [] New Servings: [] |
@@ -103,40 +104,42 @@ This project is a recipe scaling tool that allows users to input a recipe, inclu
 | - Reduce sugar slightly if making for kids |
 | - Soften butter before mixing for better texture|
 | - ... |
-+----------------------------------------------------+```
++----------------------------------------------------+
+```
 
 ---
 
-##Legend / Notes:##  
+## Legend / Notes
 
-###Recipe Name:### 
+### Recipe Name
 - Input field for the recipe title.  
 
-###Original Servings / New Servings:### 
+### Original Servings / New Servings
 - Input fields to scale ingredients.  
 
-###Ingredients Section:###
+### Ingredients Section
 
-  ####Ingredient Name:#### 
-  - Name of the ingredient.  
+#### Ingredient Name
+- Name of the ingredient.  
 
-  ####Original:#### 
-  - Quantity based on original servings.  
+#### Original
+- Quantity based on original servings.  
 
-  ####Scaled Amount:####
-  - Automatically calculated based on new servings.  
+#### Scaled Amount
+- Automatically calculated based on new servings.  
 
-###Buttons:###  
-  ####Add Ingredient:####
-  - Adds a new ingredient row.  
-  
-  ####Scale Recipe:####
-  - Calculates scaled amounts.  
-  
-  ####Reset:####
-  - Clears scaled amounts and new servings.  
+### Buttons
 
-###Suggestions:###
+#### Add Ingredient
+- Adds a new ingredient row.  
+
+#### Scale Recipe
+- Calculates scaled amounts.  
+
+#### Reset
+- Clears scaled amounts and new servings.  
+
+### Suggestions
 - Optional tips or alternatives based on entered ingredients.  
 
 
