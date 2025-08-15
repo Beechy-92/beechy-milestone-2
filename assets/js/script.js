@@ -1,7 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  // Add an initial ingredient row on page load
+  function addInitialIngredient() {
+    const ingredientsList = document.getElementById("ingredients-list");
+    if (ingredientsList && ingredientsList.children.length === 0) {
+      const newRow = document.createElement("div");
+      newRow.className = "ingredient";
+      newRow.innerHTML = `
+        <input type="text" class="ingredient-name form-control" placeholder="e.g. Sugar" required />
+        <input type="number" class="ingredient-original form-control" placeholder="e.g. 100 (grams)" required />
+        <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly />
+      `;
+      ingredientsList.appendChild(newRow);
+    }
+  }
+  addInitialIngredient();
+
 function addIngredient() {
-  const lastIngredient = document.querySelector("#ingredients-list .ingredient:last-child");
+  const ingredientsList = document.getElementById("ingredients-list");
+  const lastIngredient = ingredientsList.querySelector(".ingredient:last-child");
+
+  // If there are no ingredients yet, just add a new row
+  if (!lastIngredient) {
+    const newRow = document.createElement("div");
+    newRow.className = "ingredient";
+    newRow.innerHTML = `
+      <input type="text" class="ingredient-name form-control" placeholder="e.g. Sugar" required />
+      <input type="number" class="ingredient-original form-control" placeholder="e.g. 100 (grams)" required />
+      <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly />
+    `;
+    ingredientsList.appendChild(newRow);
+    updateSuggestions();
+    return;
+  }
+
   const nameInput = lastIngredient.querySelector(".ingredient-name");
   const amountInput = lastIngredient.querySelector(".ingredient-original");
 
@@ -10,16 +42,17 @@ function addIngredient() {
     return;
   }
 
-    // Kepps original ingredients values visable
+  // Keeps original ingredients values visible
   const newRow = document.createElement("div");
   newRow.className = "ingredient";
   newRow.innerHTML = `
-    <input type="text" class="ingredient-name" placeholder="e.g. Sugar" required />
-    <input type="number" class="ingredient-original" placeholder="e.g. 100 (grams)" required />
-    <input type="text" class="ingredient-scaled" placeholder="Scaled amount" readonly />
+    <input type="text" class="ingredient-name form-control" placeholder="e.g. Sugar" required />
+    <input type="number" class="ingredient-original form-control" placeholder="e.g. 100 (grams)" required />
+    <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly />
   `;
 
-  document.getElementById("ingredients-list").appendChild(newRow);
+  ingredientsList.appendChild(newRow);
+  updateSuggestions();
 }
 
 document.getElementById("add-ingredient-btn").addEventListener("click", addIngredient);
@@ -48,16 +81,16 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
   }
 
   // Scale each ingredient
-  originals.forEach(function (input, index) {
+  for (let index = 0; index < originals.length; index++) {
+    const input = originals[index];
     const amountValue = parseFloat(input.value);
     if (isNaN(amountValue) || amountValue <= 0) {
       alert("Please make sure all ingredient amounts are valid positive numbers.");
       return;
     }
-
     const scaledAmount = (amountValue / originalServings) * newServings;
     scaled[index].value = scaledAmount.toFixed(2);
-  });
+  }
 });
 
 // Live scaling as user types new servings
@@ -140,26 +173,20 @@ document.addEventListener("input", function(e) {
 });
 
 
-document.querySelectorAll('.form-control').forEach(input => {
-  input.addEventListener('focus', () => {
-    input.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
-    input.style.borderColor = '#F6AE2D';
-    input.style.boxShadow = '0 0 8px rgba(246, 174, 45, 0.6)';
-  });
-
-  input.addEventListener('blur', () => {
-    input.style.borderColor = '';
-    input.style.boxShadow = '';
-  });
+// Use event delegation for dynamically added .form-control elements
+document.addEventListener('focusin', (e) => {
+  if (e.target.classList.contains('form-control')) {
+    e.target.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+    e.target.style.borderColor = '#F6AE2D';
+    e.target.style.boxShadow = '0 0 8px rgba(246, 174, 45, 0.6)';
+  }
 });
 
-// Add focus and blur effects to all form controls
-document.querySelectorAll('.form-control').forEach(input => {
-  input.addEventListener('focus', () => {
-    input.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
-    input.style.borderColor = '#F6AE2D';
-    input.style.boxShadow = '0 0 8px rgba(246, 174, 45, 0.6)';
-  });
-
-});
-});
+document.addEventListener('focusout', (e) => {
+  if (e.target.classList.contains('form-control')) {
+    e.target.style.borderColor = '';
+    e.target.style.boxShadow = '';
+  }
+}
+)});
+// End of script.js
