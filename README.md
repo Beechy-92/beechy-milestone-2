@@ -120,6 +120,21 @@ The development of **Beechy Milestone 2** followed a structured, iterative proce
 - **Steph** – *As a home baker, I want to quickly scale my recipe ingredients so that I can make a cake for a larger party without manually calculating amounts.*  
 - **Abby** – *As a busy senior manager, I want to reduce the serving size for my recipes so that I can prepare smaller meals and reduce food waste.*  
 - **Teresa** – *As an excellent cook from Hong Kong, I want the system to give me preparation tips for each ingredient so that I can adapt recipes to suit local tastes and cooking styles.*
+- **Ashley** - As a web development student, I want to build a recipe scaling app so that I can demonstrate my ability to design a responsive, interactive front-end project that solves a real-world problem.
+
+## Developers Rational
+
+I chose to build the Recipe Scaling Wizard because it solves a common, real-world problem: adapting recipes to suit different serving sizes without manual calculations. Scaling recipes is something that many people — from home cooks to professionals — encounter regularly, and existing solutions are often hidden behind paywalls or overly complicated apps.
+
+From a developer’s perspective, this project was also chosen because it allowed me to:
+
+- Apply core front-end skills: HTML for structure, CSS/Bootstrap for design, and JavaScript for logic and interactivity.
+-Demonstrate problem-solving: implementing dynamic ingredient rows, handling invalid inputs, and providing real-time scaling feedback.
+- Focus on accessibility and UX: ensuring that the app is clear, easy to navigate, and responsive across devices.
+- Explore APIs and advanced interactivity: by planning (and partially implementing) a system for ingredient suggestions and preparation tips.
+- Follow professional workflows: using GitHub for version control, documenting commits, testing features, and deploying via GitHub Pages.
+
+By combining both technical learning goals and practical user needs, the Recipe Scaling Wizard demonstrates not just my ability to build a functional app, but also my ability to design with a purpose.
 
 ## Testing
   ### Javascript Testing
