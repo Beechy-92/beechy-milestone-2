@@ -49,6 +49,7 @@ This project is a recipe scaling tool that allows users to input a recipe, inclu
 **Suggestions System**
 - Provides tips for ingredients using a local `suggestionData` object  
 - Updates dynamically as ingredient names are typed  
+- Basic local suggestions for common ingredients, with plans to use an AI API in the future.
 
 **Reset Functionality**
 - Clears all scaled amounts and new servings input  
