@@ -108,7 +108,7 @@ The development of **Beechy Milestone 2** followed a structured, iterative proce
 ### 6. Maintenance & Future Enhancements
 - Planned for possible API integration for advanced suggestions.
 - Ideas for future:
-  - Save and load recipes.
+  - Save and load recipes, including a function for adding recipe name.
   - User accounts to store preferences.
   - Unit conversions (e.g., cups ↔ grams).
   - Accessibility improvements.
