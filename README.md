@@ -2,12 +2,11 @@
 - [Recipe Wizard](https://beechy-92.github.io/beechy-milestone-2/)
 
 # Project Overview
-This project is a recipe scaling tool that allows users to input a recipe, including ingredients and serving size, and then scale the recipe for a different number of servings. It also provides local suggestions for ingredient preparation and improvements.
+This project is a recipe scaling tool that allows users to input a recipe, including ingredients and serving size, and then scale the recipe for a different number of servings. It also provides local suggestions for basic ingredients preparation and improvements.
 
   ## Features I want
 
   **User input**
-  - Recipe name
   - List of ingredients + quantity
   - Original number of servings
 
@@ -15,7 +14,7 @@ This project is a recipe scaling tool that allows users to input a recipe, inclu
   - Choose how many servings the user needs
   - Get updated ingredient amounts
 
-  **Bonus with API**
+  **Bonus with API/Future improvements**
   - Suggested alternatives, tips, or improvments (based on recipe ingredients)
 
   ---
