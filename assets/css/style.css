@@ -29,23 +29,6 @@ h1, h2, h3 {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
-.card {
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.ingredient-list li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
-  transition: background-color 0.2s ease;
-}
-.ingredient-list li:hover {
-  background-color: rgba(246, 174, 45, 0.1);
-}
-.tips-section {
-  background-color: #fff8f0;
-  padding: 1rem;
-  border-radius: 1rem;
-}
 
 /* Recipe Section */
 .recipe-section {
@@ -102,12 +85,6 @@ label::before {
 }
 .ingredient-list li:hover {
   background-color: rgba(246, 174, 45, 0.1);
-}
-
-/* Buttons in form */
-#recipe-form button {
-  border-radius: 0.5rem;
-  padding: 0.5rem 1.25rem;
 }
 
 /* Layout tweaks for responsiveness */
