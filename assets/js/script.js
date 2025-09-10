@@ -140,13 +140,16 @@ const suggestionData = {
   "milk": "Warm milk slightly to help yeast rise faster."
 };
 
+// Updates suggestions based on current ingredients
 function updateSuggestions() {
   const ingredientNames = Array.from(document.querySelectorAll(".ingredient-name"))
     .map(input => input.value.trim().toLowerCase());
 
+    // Target the suggestions list and clear old suggestions
   const list = document.getElementById("suggestions-list");
   list.innerHTML = "";
 
+  // Loop through ingredient names and match with suggestionData keys
   ingredientNames.forEach(name => {
     for (const key in suggestionData) {
       if (name.includes(key)) {
@@ -157,6 +160,7 @@ function updateSuggestions() {
     }
   });
 
+  // If no suggestions, show a default message
   if (!list.hasChildNodes()) {
     const li = document.createElement("li");
     li.textContent = "No suggestions yet — try adding more ingredients.";
