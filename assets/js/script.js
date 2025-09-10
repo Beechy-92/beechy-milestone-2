@@ -17,6 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   addInitialIngredient();
 
+function showError(message) {
+  const errorDiv = document.getElementById("error-message");
+  errorDiv.textContent = message;
+
+  // Clear message automatically after 4 seconds
+  setTimeout(() => {
+    errorDiv.textContent = "";
+  }, 4000);
+}
+
 function addIngredient() {
   const ingredientsList = document.getElementById("ingredients-list");
   const lastIngredient = ingredientsList.querySelector(".ingredient:last-child");
@@ -40,10 +50,9 @@ function addIngredient() {
 
   // Ensure the last ingredient is filled before adding a new one
   if (nameInput.value.trim() === "" || amountInput.value.trim() === "") {
-    alert("Please enter both an ingredient name and amount before adding a new one.");
-    return;
-  }
-
+  showError("Please enter both an ingredient name and amount before adding a new one.");
+  return;
+}
   // Keeps original ingredients values visible
   const newRow = document.createElement("div");
   newRow.className = "ingredient";
