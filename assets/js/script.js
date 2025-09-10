@@ -21,6 +21,22 @@ function showError(message) {
   const errorDiv = document.getElementById("error-message");
   errorDiv.textContent = message;
 
+  // Highlight the error message
+  invalidInputs.forEach(input => {
+    input.style.borderColor = 'red';
+    input.style.boxShadow = '0 0 8px rgba(255, 0, 0, 0.6)';
+  })
+
+  // Clear highlights after 4 seconds
+  setTimeout(() => {
+    errorDiv.textContent = "";
+    invalidInputs.forEach(input => {
+      input.style.borderColor = '';
+      input.style.boxShadow = '';
+    });
+  }, 4000);
+
+
   // Clear message automatically after 4 seconds
   setTimeout(() => {
     errorDiv.textContent = "";
@@ -82,12 +98,12 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
 
 
   if (isNaN(originalServings) || originalServings <= 0) {
-    alert("Please enter a valid original number of servings.");
+    showError("Please enter a valid original number of servings.");
     return;
   }
 
   if (isNaN(newServings) || newServings <= 0) {
-    alert("Please enter a valid new number of servings.");
+    showError("Please enter a valid new number of servings.");
     return;
   }
 
@@ -96,7 +112,7 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
     const input = originals[index];
     const amountValue = parseFloat(input.value);
     if (isNaN(amountValue) || amountValue <= 0) {
-      alert("Please make sure all ingredient amounts are valid positive numbers.");
+      showError("Please make sure all ingredient amounts are valid positive numbers.");
       return;
     }
     const scaledAmount = (amountValue / originalServings) * newServings;
