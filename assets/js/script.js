@@ -144,8 +144,6 @@ function updateSuggestions() {
   const ingredientNames = Array.from(document.querySelectorAll(".ingredient-name"))
     .map(input => input.value.trim().toLowerCase());
 
-  console.log("Ingredients typed:", ingredientNames);
-
   const list = document.getElementById("suggestions-list");
   list.innerHTML = "";
 
@@ -187,6 +185,5 @@ document.addEventListener('focusout', (e) => {
     e.target.style.borderColor = '';
     e.target.style.boxShadow = '';
   }
-}
-)});
-// End of script.js
+});
+});
