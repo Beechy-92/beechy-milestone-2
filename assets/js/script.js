@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+// All javascript runs only after DOM is ready
 
   // Add an initial ingredient row on page load
   function addInitialIngredient() {
@@ -37,6 +38,7 @@ function addIngredient() {
   const nameInput = lastIngredient.querySelector(".ingredient-name");
   const amountInput = lastIngredient.querySelector(".ingredient-original");
 
+  // Ensure the last ingredient is filled before adding a new one
   if (nameInput.value.trim() === "" || amountInput.value.trim() === "") {
     alert("Please enter both an ingredient name and amount before adding a new one.");
     return;
