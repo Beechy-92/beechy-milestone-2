@@ -159,7 +159,7 @@ By combining both technical learning goals and practical user needs, the Recipe 
   ### Final Testing (Browser Compatibility)
   * Chrome user test - Testing all functions, inputs and outputs. <video controls src="assets/deployment-images/final-test-chrome.mp4" title="Title"></video>
 
-  * Firefox user test - Testing all functions, inputs and outputs. <video controls src="assets/deployment-images/final-test-firefox.mp4" title="Title"></video>
+  * Firefox user test - Testing all functions, inputs and outputs. <video controls src="assets/deployment-images/final-test-firfox.mp4" title="Title"></video>
   
   ### 
 
