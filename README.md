@@ -4,26 +4,25 @@
 # Project Overview
 This project is a recipe scaling tool that allows users to input a recipe, including ingredients and serving size, and then scale the recipe for a different number of servings. It also provides local suggestions for basic ingredients preparation and improvements.
 
-  ## Features I want
 
+  ## Features I want
+  
   **User input**
   - List of ingredients + quantity
   - Original number of servings
-
+  
   **User output**
   - Choose how many servings the user needs
   - Get updated ingredient amounts
-
+  
   **Bonus with API/Future improvements**
   - Suggested alternatives, tips, or improvments (based on recipe ingredients)
-
-  ---
 
 ## Tech Stack Being Used
   | Part                  | Tech                           |
 | --------------------- | ------------------------------ |
 | Structure             | HTML                           |
-| Styling               | CSS or Bootstrap               |
+| Styling               | CSS and Bootstrap              |
 | Logic + Interactivity | JavaScript                     |
 | Suggestions API       | OpenAI |
 
@@ -157,16 +156,15 @@ By combining both technical learning goals and practical user needs, the Recipe 
   * The location of the new number of people doesn't seem to flow very well, so im going to move this towards the top next to the original, this should improve the UI and therfore improving the UX ![alt text](assets/images/moving-new-number-of-people.png)
   * Live scaling test passed <video controls src="assets/videos/live-scaling-test.mp4" title="Title"></video>
   
+  ### 
+
   **Key Design Notes**
 - Ingredient rows are dynamically added below the last entry  
 - Original amounts are editable; scaled amounts are read-only  
 - Suggestions list updates live based on ingredient names  
 - Buttons are positioned for clear user flow (Scale/Reset/Add Ingredient)  
 - Focus and blur effects highlight active inputs for better UX
-
 ```
-+----------------------------------------------------+
-| Recipe Name: [___________________] |
 +----------------------------------------------------+
 | Original Servings: [] New Servings: [] |
 +----------------------------------------------------+
@@ -189,12 +187,8 @@ By combining both technical learning goals and practical user needs, the Recipe 
 +----------------------------------------------------+
 ```
 
----
 
-## Legend / Notes
-
-### Recipe Name
-- Input field for the recipe title.  
+## Legend / Notes 
 
 ### Original Servings / New Servings
 - Input fields to scale ingredients.  
