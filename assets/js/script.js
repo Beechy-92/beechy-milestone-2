@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   addInitialIngredient();
 
-function showError(message) {
+function showError(message, invalidInputs = []) {
   const errorDiv = document.getElementById("error-message");
   errorDiv.textContent = message;
 
@@ -66,7 +66,9 @@ function addIngredient() {
 
   // Ensure the last ingredient is filled before adding a new one
   if (nameInput.value.trim() === "" || amountInput.value.trim() === "") {
-  showError("Please enter both an ingredient name and amount before adding a new one.");
+  showError("Please enter both an ingredient name and amount before adding a new one.",
+    [nameInput, amountInput]
+  );
   return;
 }
   // Keeps original ingredients values visible
@@ -98,12 +100,13 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
 
 
   if (isNaN(originalServings) || originalServings <= 0) {
-    showError("Please enter a valid original number of servings.");
+    showError("Please enter a valid original number of servings.", [originalInput]
+    );
     return;
   }
 
   if (isNaN(newServings) || newServings <= 0) {
-    showError("Please enter a valid new number of servings.");
+    showError("Please enter a valid new number of servings.", [newInput]);
     return;
   }
 
