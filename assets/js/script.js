@@ -19,27 +19,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function showError(message, invalidInputs = []) {
   const errorDiv = document.getElementById("error-message");
+  if (!errorDiv) return;
+
+  // Set error message
   errorDiv.textContent = message;
 
-  // Highlight the error message
+  // Highlight invalid inputs
   invalidInputs.forEach(input => {
-    input.style.borderColor = 'red';
-    input.style.boxShadow = '0 0 8px rgba(255, 0, 0, 0.6)';
-  })
+    if (input) {
+      input.style.borderColor = 'red';
+      input.style.boxShadow = '0 0 8px rgba(255, 0, 0, 0.6)';
+    }
+  });
 
-  // Clear highlights after 4 seconds
+  // Clear error message and highlights after 4 seconds
   setTimeout(() => {
     errorDiv.textContent = "";
     invalidInputs.forEach(input => {
-      input.style.borderColor = '';
-      input.style.boxShadow = '';
+      if (input) {
+        input.style.borderColor = '';
+        input.style.boxShadow = '';
+      }
     });
-  }, 4000);
-
-
-  // Clear message automatically after 4 seconds
-  setTimeout(() => {
-    errorDiv.textContent = "";
   }, 4000);
 }
 
@@ -97,6 +98,9 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
     // Get all ingredient amount inputs  
   const originals = document.querySelectorAll(".ingredient-original");
   const scaled = document.querySelectorAll(".ingredient-scaled");
+
+  const originalInput = document.getElementById("original-servings");
+  const newInput = document.getElementById("new-servings");
 
 
   if (isNaN(originalServings) || originalServings <= 0) {
