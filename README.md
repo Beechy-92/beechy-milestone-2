@@ -155,6 +155,11 @@ By combining both technical learning goals and practical user needs, the Recipe 
   ### UX Testing
   * The location of the new number of people doesn't seem to flow very well, so im going to move this towards the top next to the original, this should improve the UI and therfore improving the UX ![alt text](assets/images/moving-new-number-of-people.png)
   * Live scaling test passed <video controls src="assets/videos/live-scaling-test.mp4" title="Title"></video>
+
+  ### Final Testing (Browser Compatibility)
+  * Chrome user test - Testing all functions, inputs and outputs. <video controls src="assets/deployment-images/final-test-chrome.mp4" title="Title"></video>
+
+  * Firefox user test - Testing all functions, inputs and outputs. <video controls src="assets/deployment-images/final-test-firefox.mp4" title="Title"></video>
   
   ### 
 
