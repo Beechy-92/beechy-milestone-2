@@ -1,84 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Scaling Wizard</title>
-    
     <!-- Bootstrap & Fonts -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="assets/css/style.css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-
     <!-- Hero Section -->
-  <section class="hero">
-    <h1>Recipe Scaling Wizard</h1>
-    <p class="lead">Adjust any recipe to fit your servings — instantly!</p>
-    <a href="#scaler" class="btn btn-lg btn-gradient">Start Scaling</a>
-  </section>
+    <section class="hero text-center py-5">
+      <h1>Recipe Scaling Wizard</h1>
+      <p class="lead">Adjust any recipe to fit your servings — instantly!</p>
+      <a href="#scaler" class="btn btn-lg btn-gradient">Start Scaling</a>
+    </section>
 
-  <!-- Recipe Section -->
+    <!-- Recipe Section -->
     <section class="recipe-section py-5" id="scaler">
       <div class="container">
         <div class="row g-5 align-items-start">
-
           <!-- Left: Form -->
           <div class="col-lg-6">
             <div class="recipe-card p-4">
               <h2 class="mb-4">🍳 Build Your Recipe</h2>
-              <div id="error-message" class="text-danger mt-2"></div>
-
-
-    <form id="recipe-form">
-  <div class="servings-inputs">
-    <div class="serving-group">
-      <label for="original-servings">Original number of people:</label>
-      <input type="number" id="original-servings" class="form-control" required >
-    </div>
-
-    <div class="serving-group">
-      <label for="new-servings">New number of people:</label>
-      <input type="number" id="new-servings" class="form-control" required >
-    </div>
-  </div>
-
-  <label>Recipe Conversion Table</label>
-
-  <div id="ingredients-list">
-     <div class="ingredient">
-    <input type="text" class="ingredient-name form-control" placeholder="e.g. Flour" required >
-    <input type="number" class="ingredient-original form-control" placeholder="e.g. 200" required >
-    <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly >
-  </div>
-  </div>
-
-  <div id="suggestions-box">
-    <h3>Smart Suggestions</h3>
-    <ul id="suggestions-list"></ul>
-  </div>
-
-  <button type="button" id="add-ingredient-btn" class="btn btn-secondary mb-2">Add Ingredient</button>
-  <button type="submit" class="btn btn-primary mb-2">Scale Recipe</button>
-  <button type="button" id="reset-ingredients" class="btn btn-danger mb-2">Reset Ingredients</button>
-</form>
+              <form id="recipe-form" autocomplete="off">
+                <div class="servings-inputs mb-3">
+                  <div class="serving-group mb-2">
+                    <label for="original-servings" class="form-label">Original number of people:</label>
+                    <input type="number" id="original-servings" class="form-control" required min="1" />
+                  </div>
+                  <div class="serving-group mb-2">
+                    <label for="new-servings" class="form-label">New number of people:</label>
+                    <input type="number" id="new-servings" class="form-control" required min="1" />
+                  </div>
+                </div>
+                <label class="form-label">Recipe Conversion Table</label>
+                <div id="ingredients-list">
+                  <div class="ingredient row g-2 mb-2">
+                    <div class="col-5">
+                      <input type="text" class="ingredient-name form-control" placeholder="e.g. Flour" required />
+                    </div>
+                    <div class="col-3">
+                      <input type="number" class="ingredient-original form-control" placeholder="e.g. 200" required min="0" />
+                    </div>
+                    <div class="col-4">
+                      <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly />
+                    </div>
+                  </div>
+                </div>
+                <div id="suggestions-box" class="mb-3">
+                  <h3 class="h5">Smart Suggestions</h3>
+                  <ul id="suggestions-list" class="list-unstyled mb-0"></ul>
+                </div>
+                <div class="d-flex gap-2">
+                  <button type="button" id="add-ingredient-btn" class="btn btn-secondary">Add Ingredient</button>
+                  <button type="submit" class="btn btn-primary">Scale Recipe</button>
+                  <button type="button" id="reset-ingredients" class="btn btn-danger">Reset</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- Right: Output -->
+          <div class="col-lg-6">
+            <div class="recipe-card p-4">
+              <h2 class="mb-4">📊 Scaled Recipe</h2>
+              <div id="scaled-output" aria-live="polite">
+                <!-- Scaled recipe output will appear here -->
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <p>&copy; 2023 Recipe Scaling Wizard. All rights reserved.</p>
+
+    <footer role="contentinfo" class="py-4 bg-light mt-5">
+      <div class="container text-center">
+        <p class="mb-0">&copy; 2023 Recipe Scaling Wizard. All rights reserved.</p>
       </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
-    
   </body>
 </html>
