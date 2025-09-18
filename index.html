@@ -38,16 +38,10 @@
                 </div>
                 <label class="form-label">Recipe Conversion Table</label>
                 <div id="ingredients-list">
-                  <div class="ingredient row g-2 mb-2">
-                    <div class="col-5">
-                      <input type="text" class="ingredient-name form-control" placeholder="e.g. Flour" required />
-                    </div>
-                    <div class="col-3">
-                      <input type="number" class="ingredient-original form-control" placeholder="e.g. 200" required min="0" />
-                    </div>
-                    <div class="col-4">
-                      <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly />
-                    </div>
+                  <div class="ingredient mb-2">
+                    <input type="text" class="ingredient-name form-control mb-2" placeholder="e.g. Flour" required />
+                    <input type="number" class="ingredient-original form-control mb-2" placeholder="e.g. 200" required min="0" />
+                    <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly />
                   </div>
                 </div>
                 <div id="suggestions-box" class="mb-3">
@@ -66,6 +60,16 @@
           <div class="col-lg-6">
             <div class="recipe-card p-4">
               <h2 class="mb-4">📊 Scaled Recipe</h2>
+
+              <figure class="mb-4 text-center">
+                <img src="assets/deployment-images/example-recipe.png" 
+                alt= "A bowl of pasta garnished with fresh basil and grated cheese sits on a wooden table next to a glass of water and a folded napkin. The scene is bright and inviting, suggesting a cozy and cheerful meal setting. The image includes the text: Scaled Recipe Example."
+                class="img-fluid rounded shadow-sm">
+                <figcaption class="small text-muted mt-2">
+                  Example recipe output
+                </figcaption>
+              </figure>
+
               <div id="scaled-output" aria-live="polite">
                 <!-- Scaled recipe output will appear here -->
               </div>
