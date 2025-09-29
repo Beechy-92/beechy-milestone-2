@@ -4,7 +4,23 @@
   ![Recipe Wizard Preview](assets/deployment-images/full-final-preview.png)
 
 # Project Overview
-This project is a recipe scaling tool that allows users to input a recipe, including ingredients and serving size, and then scale the recipe for a different number of servings. It also provides local suggestions for basic ingredients preparation and improvements.
+Recipe Wizard is a lightweight, front-end web application designed to solve a common kitchen problem: adapting recipes for different serving sizes without tedious manual calculations. Users enter a recipe’s ingredients and original servings, then adjust the serving size to instantly generate updated ingredient amounts.
+
+For developers, this project demonstrates how modern front-end technologies (HTML, CSS/Bootstrap, and JavaScript) can be combined to create a responsive, interactive, and user-friendly tool. It has been intentionally designed with scalability in mind, making it easy to extend with new features such as API integrations, unit conversions, or persistent recipe storage.
+
+The app has two clear goals:
+
+For users: Provide an intuitive tool that makes cooking more flexible, reduces waste, and saves time.
+
+For developers: Provide a clear, well-structured codebase that showcases practical use of DOM manipulation, input validation, live updates, and potential API integrations.
+
+This project is particularly suited for:
+
+Developers exploring front-end best practices with real-world functionality.
+
+Students seeking an example of a complete, tested, and deployed JavaScript project.
+
+Contributors who want to extend the app with features like AI-powered cooking tips, recipe storage, or unit conversions.
 
 
   ## Features I want
