@@ -177,7 +177,14 @@ By combining both technical learning goals and practical user needs, the Recipe 
   ### Final Testing
   * Chrome user test - Testing all functions, inputs and outputs. <video controls src="assets/deployment-images/final-test-chrome.mp4" title="Title"></video>
 
+  ### Manual VS Automated Testing
+  Automated vs Manual Testing
 
+  * Manual testing involves a person interacting with the app directly—clicking buttons, entering data, and checking outputs to verify that features work as expected. This is best for testing user experience (UX), layout, accessibility, and edge cases that are difficult to predict. Manual testing is flexible and can uncover unexpected issues but can also be time-consuming and inconsistent if repeated often.
+
+  * Automated testing uses scripts or frameworks to run repeatable tests on the app’s logic and functionality. Automated tests are best when you need to verify core logic, calculations, or repetitive scenarios (like scaling ingredients correctly every time). They ensure reliability and save time in the long term, especially when features are updated or expanded.
+
+  * In practice, manual testing is usually done during early development and for UI/UX checks, while automated testing becomes more valuable as the project grows and needs consistent, repeatable validation.
   
   
   ### 
