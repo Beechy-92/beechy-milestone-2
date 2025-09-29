@@ -177,6 +177,16 @@ By combining both technical learning goals and practical user needs, the Recipe 
   ### Final Testing
   * Chrome user test - Testing all functions, inputs and outputs. <video controls src="assets/deployment-images/final-test-chrome.mp4" title="Title"></video>
   * Phone scaling test - screenshot of the homepage within phone screen size parameters. ![alt text](assets/deployment-images/412-915-scale-phone-test.png)
+    * Start scaling button - Passed 
+    * Hover funstion - Passed
+    * Scale button error test when original number of people input is left empty - Passed
+    * Scale button error test when new number of people input is left empty - Passed
+    * Scale button error test when ingredient name input is left empty - Passed
+    * Scaled result function - Passed
+    * Add ingredient funstion - passed
+    * Live scaling - Passed
+    * Smart suggestion - Passed
+    * Reset function - Passed
 
   * Tablet scaling test - screenshot of the homepage within tablet screen size parameters. ![alt text](assets/deployment-images/1366-1024-scale-tablet-test.png)
 
