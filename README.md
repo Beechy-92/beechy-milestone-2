@@ -176,6 +176,11 @@ By combining both technical learning goals and practical user needs, the Recipe 
 
   ### Final Testing
   * Chrome user test - Testing all functions, inputs and outputs. <video controls src="assets/deployment-images/final-test-chrome.mp4" title="Title"></video>
+  * Phone scaling test - screenshot of the homepage within phone screen size parameters. ![alt text](assets/deployment-images/412-915-scale-phone-test.png)
+
+  * Tablet scaling test - screenshot of the homepage within tablet screen size parameters. ![alt text](assets/deployment-images/1366-1024-scale-tablet-test.png)
+
+  * PC scaling test - screenshot of the homepage within pc screen size parameters. ![alt text](assets/deployment-images/1280-800-scale-pc-test.png)
 
   ### Manual VS Automated Testing
   Automated vs Manual Testing
