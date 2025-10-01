@@ -151,7 +151,7 @@ The development of **Beechy Milestone 2** followed a structured, iterative proce
 **Teresa** – As an excellent cook from Hong Kong, I want the system to give me preparation tips for each ingredient so that I can adapt recipes to suit local tastes and cooking styles.  
 **Test:** I entered "flour" as an ingredient. The Smart Suggestions box displayed preparation advice (e.g., “sift flour for lighter texture”).  
 **Evidence:**  
-![Teresa tips test]()
+![Teresa tips test](assets/deployment-images/teresa-user-test.png)
 
 ---
 
