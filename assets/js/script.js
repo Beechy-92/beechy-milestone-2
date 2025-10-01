@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tea: "Use fresh tea leaves or bags for the best flavor.",
     coffee: "Freshly ground coffee beans provide the best flavor.",
     water: "Use filtered water for the best taste in recipes.",
-    
+  };
 
   // Updates suggestions based on current ingredients
   function updateSuggestions() {

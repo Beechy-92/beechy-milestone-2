@@ -144,7 +144,7 @@ The development of **Beechy Milestone 2** followed a structured, iterative proce
 **Abby** – As a busy senior manager, I want to reduce the serving size for my recipes so that I can prepare smaller meals and reduce food waste.  
 **Test:** I scaled a recipe from 6 → 2 servings. The ingredient amounts reduced as expected, preventing waste.  
 **Evidence:**  
-![Abby scaling test]()
+![Abby scaling test](assets/deployment-images/abby-user-test.png)
 
 ---
 
