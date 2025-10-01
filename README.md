@@ -134,10 +134,32 @@ The development of **Beechy Milestone 2** followed a structured, iterative proce
 
 ## User Stories
 
-- **Steph** – *As a home baker, I want to quickly scale my recipe ingredients so that I can make a cake for a larger party without manually calculating amounts.*  
-- **Abby** – *As a busy senior manager, I want to reduce the serving size for my recipes so that I can prepare smaller meals and reduce food waste.*  
-- **Teresa** – *As an excellent cook from Hong Kong, I want the system to give me preparation tips for each ingredient so that I can adapt recipes to suit local tastes and cooking styles.*
-- **Ashley** - As a web development student, I want to build a recipe scaling app so that I can demonstrate my ability to design a responsive, interactive front-end project that solves a real-world problem.
+**Steph** – As a home baker, I want to quickly scale my recipe ingredients so that I can make a cake for a larger party without manually calculating amounts.  
+**Test:** I scaled a recipe from 4 → 12 servings. The ingredient amounts updated correctly in the scaled column.  
+**Evidence:**  
+![Steph scaling test](assets/deployment-images/steph-user-test.png)
+
+---
+
+**Abby** – As a busy senior manager, I want to reduce the serving size for my recipes so that I can prepare smaller meals and reduce food waste.  
+**Test:** I scaled a recipe from 6 → 2 servings. The ingredient amounts reduced as expected, preventing waste.  
+**Evidence:**  
+![Abby scaling test]()
+
+---
+
+**Teresa** – As an excellent cook from Hong Kong, I want the system to give me preparation tips for each ingredient so that I can adapt recipes to suit local tastes and cooking styles.  
+**Test:** I entered "flour" as an ingredient. The Smart Suggestions box displayed preparation advice (e.g., “sift flour for lighter texture”).  
+**Evidence:**  
+![Teresa tips test]()
+
+---
+
+**Ashley** – As a web development student, I want to build a recipe scaling app so that I can demonstrate my ability to design a responsive, interactive front-end project that solves a real-world problem.  
+**Test:** I tested the app on mobile, tablet, and desktop viewports. The layout adjusted responsively with no broken design or functionality.  
+**Evidence:**  
+![Ashley responsive test]()
+
 
 ## Developers Rational
 
@@ -175,22 +197,30 @@ By combining both technical learning goals and practical user needs, the Recipe 
   * Live scaling test passed <video controls src="assets/videos/live-scaling-test.mp4" title="Title"></video>
 
   ### Final Testing
-  * Chrome user test - Testing all functions, inputs and outputs. <video controls src="assets/deployment-images/final-test-chrome.mp4" title="Title"></video>
-  * Phone scaling test - screenshot of the homepage within phone screen size parameters. ![alt text](assets/deployment-images/412-915-scale-phone-test.png)
-    * Start scaling button - Passed 
-    * Hover funstion - Passed
-    * Scale button error test when original number of people input is left empty - Passed
-    * Scale button error test when new number of people input is left empty - Passed
-    * Scale button error test when ingredient name input is left empty - Passed
-    * Scaled result function - Passed
-    * Add ingredient funstion - passed
-    * Live scaling - Passed
-    * Smart suggestion - Passed
-    * Reset function - Passed
 
-  * Tablet scaling test - screenshot of the homepage within tablet screen size parameters. ![alt text](assets/deployment-images/1366-1024-scale-tablet-test.png)
+| Test ID | Area                  | Action Taken / Device Tested                              | Expected Outcome                                  | Actual Outcome | Pass/Fail |
+|---------|-----------------------|-----------------------------------------------------------|---------------------------------------------------|----------------|-----------|
+| T1      | Start Button          | Click "Start Scaling"                                     | Page scrolls to scaling form                      | Works as expected | Pass |
+| T2      | Hover Function        | Hover over buttons                                        | Visual hover effect appears                       | Works as expected | Pass |
+| T3      | Validation (Original) | Leave "Original number of people" empty, click Scale      | Error message shown                               | Works as expected | Pass |
+| T4      | Validation (New)      | Leave "New number of people" empty, click Scale           | Error message shown                               | Works as expected | Pass |
+| T5      | Validation (Ingredient)| Leave ingredient name empty, click Scale                 | Error message shown                               | Works as expected | Pass |
+| T6      | Scaling Formula       | Input ingredient & servings, click Scale                  | Ingredient amount recalculated                    | Works as expected | Pass |
+| T7      | Add Ingredient        | Click "Add Ingredient"                                    | New row added to form                             | Works as expected | Pass |
+| T8      | Live Scaling          | Change servings while ingredients entered                 | Scaled amounts update instantly                   | Works as expected | Pass |
+| T9      | Smart Suggestions     | Enter "flour"                                             | Suggestion appears in Smart Suggestions box       | Works as expected | Pass |
+| T10     | Reset Function        | Click "Reset"                                             | Clears scaled amounts and inputs                  | Works as expected | Pass |
+| R1      | Responsiveness Mobile | iPhone-size screen (412x915)                              | Layout adjusts, no horizontal scroll              | Works as expected | Pass |
+| R2      | Responsiveness Tablet | Tablet-size screen (1366x1024)                            | Layout balanced, spacing adjusts correctly        | Works as expected | Pass |
+| R3      | Responsiveness PC     | Desktop-size screen (1280x800)                            | Full layout visible, centred                      | Works as expected | Pass |
 
-  * PC scaling test - screenshot of the homepage within pc screen size parameters. ![alt text](assets/deployment-images/1280-800-scale-pc-test.png)
+**Screenshots:**
+
+- 📱 Mobile: ![Mobile](assets/deployment-images/412-915-scale-phone-test.png)  
+- 📲 Tablet: ![Tablet](assets/deployment-images/1366-1024-scale-tablet-test.png)  
+- 💻 Desktop: ![Desktop](assets/deployment-images/1280-800-scale-pc-test.png)  
+
+**Result:** Verified layout is responsive across devices and all core features function as intended.
 
   ### Manual VS Automated Testing
   Automated vs Manual Testing
