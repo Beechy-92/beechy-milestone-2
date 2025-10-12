@@ -17,30 +17,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   addInitialIngredient();
 
-  function showError(message, invalidInputs = []) {
+// Store the timeout ID so we can clear it if needed
+let errorTimeoutId;
+
+function showError(message, invalidInputs = []) {
   // Try to find an existing container
   let errorDiv = document.getElementById("error-message");
 
   // If none exists, create it at the top of the form
   if (!errorDiv) {
-    const formCard = document.querySelector(".recipe-card .mb-4 + #recipe-form") 
-                  || document.getElementById("recipe-form");
-    // fall back to form if exact selector doesn't match
+    // Expecting #recipe-form to be inside .recipe-card (adjust if DOM changes)
+    const formCard = document.getElementById("recipe-form");
     if (formCard && formCard.parentElement) {
       errorDiv = document.createElement("div");
       errorDiv.id = "error-message";
       errorDiv.setAttribute("aria-live", "assertive");
       formCard.parentElement.insertBefore(errorDiv, formCard);
     }
-  }
-
-  // Style as a Bootstrap alert for guaranteed visibility
-  if (errorDiv) {
-    errorDiv.className = "alert alert-danger mb-3";
-    errorDiv.textContent = message;
-  } else {
+    if (errorDiv) {
+      // Style as a Bootstrap alert for guaranteed visibility
+      errorDiv.className = "alert alert-danger mb-3";
+      errorDiv.textContent = message;
+    }
     // Absolute fallback: browser alert (shouldn’t be needed)
-    alert(message);
+    // alert(message); // Removed for better user experience
   }
 
   // Highlight invalid inputs
@@ -51,8 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Clear any previous timeout before setting a new one
+  if (errorTimeoutId) {
+    clearTimeout(errorTimeoutId);
+  }
   // Clear after 4 seconds
-  setTimeout(() => {
+  errorTimeoutId = setTimeout(() => {
     if (errorDiv) {
       errorDiv.textContent = "";
       errorDiv.className = ""; // remove alert classes
@@ -63,6 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
         input.style.boxShadow = "";
       }
     });
+    errorTimeoutId = null;
+}
   }, 4000);
 }
 
