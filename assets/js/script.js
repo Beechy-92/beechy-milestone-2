@@ -18,31 +18,53 @@ document.addEventListener("DOMContentLoaded", () => {
   addInitialIngredient();
 
   function showError(message, invalidInputs = []) {
-    const errorDiv = document.getElementById("error-message");
-    if (!errorDiv) return;
+  // Try to find an existing container
+  let errorDiv = document.getElementById("error-message");
 
-    // Set error message
+  // If none exists, create it at the top of the form
+  if (!errorDiv) {
+    const formCard = document.querySelector(".recipe-card .mb-4 + #recipe-form") 
+                  || document.getElementById("recipe-form");
+    // fall back to form if exact selector doesn't match
+    if (formCard && formCard.parentElement) {
+      errorDiv = document.createElement("div");
+      errorDiv.id = "error-message";
+      errorDiv.setAttribute("aria-live", "assertive");
+      formCard.parentElement.insertBefore(errorDiv, formCard);
+    }
+  }
+
+  // Style as a Bootstrap alert for guaranteed visibility
+  if (errorDiv) {
+    errorDiv.className = "alert alert-danger mb-3";
     errorDiv.textContent = message;
+  } else {
+    // Absolute fallback: browser alert (shouldn’t be needed)
+    alert(message);
+  }
 
-    // Highlight invalid inputs
+  // Highlight invalid inputs
+  invalidInputs.forEach((input) => {
+    if (input) {
+      input.style.borderColor = "red";
+      input.style.boxShadow = "0 0 8px rgba(255, 0, 0, 0.6)";
+    }
+  });
+
+  // Clear after 4 seconds
+  setTimeout(() => {
+    if (errorDiv) {
+      errorDiv.textContent = "";
+      errorDiv.className = ""; // remove alert classes
+    }
     invalidInputs.forEach((input) => {
       if (input) {
-        input.style.borderColor = "red";
-        input.style.boxShadow = "0 0 8px rgba(255, 0, 0, 0.6)";
+        input.style.borderColor = "";
+        input.style.boxShadow = "";
       }
     });
-
-    // Clear error message and highlights after 4 seconds
-    setTimeout(() => {
-      errorDiv.textContent = "";
-      invalidInputs.forEach((input) => {
-        if (input) {
-          input.style.borderColor = "";
-          input.style.boxShadow = "";
-        }
-      });
-    }, 4000);
-  }
+  }, 4000);
+}
 
   function addIngredient() {
     const ingredientsList = document.getElementById("ingredients-list");
