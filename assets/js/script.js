@@ -17,30 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   addInitialIngredient();
 
-// Store the timeout ID so we can clear it if needed
-let errorTimeoutId;
+
+let errorTimeoutId = null;
 
 function showError(message, invalidInputs = []) {
-  // Try to find an existing container
-  let errorDiv = document.getElementById("error-message");
+  const errorDiv = document.getElementById("error-message");
 
-  // If none exists, create it at the top of the form
-  if (!errorDiv) {
-    // Expecting #recipe-form to be inside .recipe-card (adjust if DOM changes)
-    const formCard = document.getElementById("recipe-form");
-    if (formCard && formCard.parentElement) {
-      errorDiv = document.createElement("div");
-      errorDiv.id = "error-message";
-      errorDiv.setAttribute("aria-live", "assertive");
-      formCard.parentElement.insertBefore(errorDiv, formCard);
-    }
-    if (errorDiv) {
-      // Style as a Bootstrap alert for guaranteed visibility
-      errorDiv.className = "alert alert-danger mb-3";
-      errorDiv.textContent = message;
-    }
-    // Absolute fallback: browser alert (shouldn’t be needed)
-    // alert(message); // Removed for better user experience
+  if (errorDiv) {
+    // Force Bootstrap’s red alert every time
+    errorDiv.className = "alert alert-danger mb-3";
+    errorDiv.textContent = message;
+  } else {
+    // Fallback if container is missing
+    alert(message);
   }
 
   // Highlight invalid inputs
@@ -51,15 +40,12 @@ function showError(message, invalidInputs = []) {
     }
   });
 
-  // Clear any previous timeout before setting a new one
-  if (errorTimeoutId) {
-    clearTimeout(errorTimeoutId);
-  }
-  // Clear after 4 seconds
+  // Clear after 4s
+  if (errorTimeoutId) clearTimeout(errorTimeoutId);
   errorTimeoutId = setTimeout(() => {
     if (errorDiv) {
       errorDiv.textContent = "";
-      errorDiv.className = ""; // remove alert classes
+      errorDiv.className = "mb-3"; // keep spacing, remove alert styling
     }
     invalidInputs.forEach((input) => {
       if (input) {
@@ -68,7 +54,6 @@ function showError(message, invalidInputs = []) {
       }
     });
     errorTimeoutId = null;
-}
   }, 4000);
 }
 
@@ -76,7 +61,6 @@ function showError(message, invalidInputs = []) {
     const ingredientsList = document.getElementById("ingredients-list");
     const lastIngredient = ingredientsList.querySelector(".ingredient:last-child");
 
-    // If there are no ingredients yet, just add a new row
     if (!lastIngredient) {
       const newRow = document.createElement("div");
       newRow.className = "ingredient";

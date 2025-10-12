@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body>
+  <body data-bs-theme="light">
     <!-- Hero Section -->
     <section class="hero text-center py-5">
       <h1>Recipe Scaling Wizard</h1>
@@ -27,13 +27,8 @@
               <h2 class="mb-4">🍳 Build Your Recipe</h2>
 
               <!-- Error messages from form validation will be injected here by script.js -->
-                <div id="error-message"
-                     role="alert"
-                     aria-live="assertive"
-                     class="text-danger mb-3">
-                </div>
-
-              <form id="recipe-form" autocomplete="off">
+              <div id="error-message" role="alert" aria-live="assertive" class="mb-3"></div>
+              <form id="recipe-form" autocomplete="off" novalidate>
                 <div class="servings-inputs mb-3">
                   <div class="serving-group mb-2">
                     <label for="original-servings" class="form-label">Original number of people:</label>
@@ -71,7 +66,7 @@
 
               <figure class="mb-4 text-center">
                 <img src="assets/deployment-images/example-recipe.png" 
-                alt= "A bowl of pasta garnished with fresh basil and grated cheese sits on a wooden table next to a glass of water and a folded napkin. The scene is bright and inviting, suggesting a cozy and cheerful meal setting. The image includes the text: Scaled Recipe Example."
+                alt= "A bowl of pasta garnished with basil and cheese."
                 class="img-fluid rounded shadow-sm">
                 <figcaption class="small text-muted mt-2">
                   Example recipe output

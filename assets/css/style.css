@@ -127,3 +127,9 @@ footer {
   color: #666;
   background: none;  
 }
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
