@@ -198,7 +198,7 @@ By combining both technical learning goals and practical user needs, the Recipe 
 - Add ingredient button pressed with no data resulted in no alert ![alt text](assets/images/add-ing-button-no-alert-when-value-empty.png)
 - Add ingredient button pressed with no data resulted in no alert again ![alt text](assets/images/add-ing-button-no-alert-again-test-two.png)
 - Add ingredient button pressed with no data resulted in alert ![alt text](assets/images/add-ing-button-alerts-test-three.png)
-- Numbers only test failed because "e" is a scientific numerical value ![alt text](assets/images/numbers-only-test-fail-e-numeric-notation.png)
+- Numbers only test failed because "e" is a scientific numerical value ![alt text](assets/images/numbers-only-test-fail-e-numeric-notation.png) (bug)
 - Numbers only test passed <img src="assets/images/numbers-only-test-pass.png" alt="Numbers only test passed" width="300">
 - Input test passed both before and after ![alt text](assets/images/input-full-test-one-before.png) ![alt text](assets/images/input-full-test-one-after.png)
 - Live scaling was unable to be tested as my original input needs to be separated from the scaled display ![alt text](assets/images/live-scaling-not-worked-oginput-scale-disp-needs-seperating.png)
