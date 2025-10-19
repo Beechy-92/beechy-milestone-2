@@ -7,12 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ingredientsList && ingredientsList.children.length === 0) {
       const newRow = document.createElement("div");
       newRow.className = "ingredient";
+      const idBase = `ing-${Date.now()}-${Math.random()
+        .toString(36)
+        .slice(2, 7)}`;
       newRow.innerHTML = `
-        <input type="text" class="ingredient-name form-control" placeholder="e.g. Sugar" required />
-        <input type="number" class="ingredient-original form-control" placeholder="e.g. 100 (grams)" required />
-        <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly />
+        <div class="mb-2">
+          <label class="form-label" for="${idBase}-name">Ingredient</label>
+          <input id="${idBase}-name" type="text" class="ingredient-name form-control" required />
+        </div>
+        <div class="mb-2">
+          <label class="form-label" for="${idBase}-orig">Original amount</label>
+          <input id="${idBase}-orig" type="number" class="ingredient-original form-control" step="any" inputmode="decimal" required />
+        </div>
+        <div class="mb-2">
+          <label class="form-label" for="${idBase}-scaled">Scaled amount</label>
+          <input id="${idBase}-scaled" type="text" class="ingredient-scaled form-control" readonly />
+        </div>
       `;
       ingredientsList.appendChild(newRow);
+      newRow.querySelector(".ingredient-name")?.focus();
     }
   }
   addInitialIngredient();
@@ -66,12 +79,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!lastIngredient) {
       const newRow = document.createElement("div");
       newRow.className = "ingredient";
+      const idBase = `ing-${Date.now()}-${Math.random()
+        .toString(36)
+        .slice(2, 7)}`;
       newRow.innerHTML = `
-        <input type="text" class="ingredient-name form-control" placeholder="e.g. Sugar" required />
-        <input type="number" class="ingredient-original form-control" placeholder="e.g. 100 (grams)" required />
-        <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly />
+        <div class="mb-2">
+          <label class="form-label" for="${idBase}-name">Ingredient</label>
+          <input id="${idBase}-name" type="text" class="ingredient-name form-control" required />
+        </div>
+        <div class="mb-2">
+          <label class="form-label" for="${idBase}-orig">Original amount</label>
+          <input id="${idBase}-orig" type="number" class="ingredient-original form-control" step="any" inputmode="decimal" required />
+        </div>
+        <div class="mb-2">
+          <label class="form-label" for="${idBase}-scaled">Scaled amount</label>
+          <input id="${idBase}-scaled" type="text" class="ingredient-scaled form-control" readonly />
+        </div>
       `;
       ingredientsList.appendChild(newRow);
+      newRow.querySelector(".ingredient-name")?.focus();
       updateSuggestions();
       return;
     }
@@ -90,13 +116,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // Keeps original ingredients values visible
     const newRow = document.createElement("div");
     newRow.className = "ingredient";
+    const idBase = `ing-${Date.now()}-${Math.random()
+      .toString(36)
+      .slice(2, 7)}`;
     newRow.innerHTML = `
-      <input type="text" class="ingredient-name form-control" placeholder="e.g. Sugar" required />
-      <input type="number" class="ingredient-original form-control" placeholder="e.g. 100 (grams)" required />
-      <input type="text" class="ingredient-scaled form-control" placeholder="Scaled amount" readonly />
+      <div class="mb-2">
+        <label class="form-label" for="${idBase}-name">Ingredient</label>
+        <input id="${idBase}-name" type="text" class="ingredient-name form-control" required />
+      </div>
+      <div class="mb-2">
+        <label class="form-label" for="${idBase}-orig">Original amount</label>
+        <input id="${idBase}-orig" type="number" class="ingredient-original form-control" step="any" inputmode="decimal" required />
+      </div>
+      <div class="mb-2">
+        <label class="form-label" for="${idBase}-scaled">Scaled amount</label>
+        <input id="${idBase}-scaled" type="text" class="ingredient-scaled form-control" readonly />
+      </div>
     `;
 
     ingredientsList.appendChild(newRow);
+    newRow.querySelector(".ingredient-name")?.focus();
     updateSuggestions();
   }
 
