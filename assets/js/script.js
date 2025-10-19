@@ -195,10 +195,35 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("reset-ingredients")
     .addEventListener("click", function () {
-      const scaled = document.querySelectorAll(".ingredient-scaled");
-      scaled.forEach((input) => (input.value = ""));
+      // Clear servings
+      const orig = document.getElementById("original-servings");
+      const news = document.getElementById("new-servings");
+      if (orig) orig.value = "";
+      if (news) news.value = "";
 
-      document.getElementById("new-servings").value = "";
+      // Clear all ingredient inputs
+      document
+        .querySelectorAll(
+          ".ingredient-name,.ingredient-original,.ingredient-scaled"
+        )
+        .forEach((el) => (el.value = ""));
+
+      // Clear suggestions/output
+      const list = document.getElementById("suggestions-list");
+      if (list) list.innerHTML = "";
+      const output = document.getElementById("scaled-output");
+      if (output) output.innerHTML = "";
+
+      // Hide error
+      const err = document.getElementById("error-message");
+      if (err) {
+        err.textContent = "";
+        err.classList.add("visually-hidden");
+        err.classList.remove("alert", "alert-danger");
+      }
+
+      // Focus first logical input
+      document.getElementById("original-servings")?.focus();
     });
 
   const suggestionData = {
