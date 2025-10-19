@@ -215,6 +215,10 @@ By combining both technical learning goals and practical user needs, the Recipe 
 - The location of the new number of people doesn't seem to flow very well, so I'm going to move this towards the top next to the original, this should improve the UI and therefore improve the UX ![alt text](assets/images/moving-new-number-of-people.png)
 - Live scaling test passed <video controls src="assets/videos/live-scaling-test.mp4" title="Title"></video>
 
+### Automated Check (formula)
+
+- Open `tests/test.html` in a browser - “All tests passed”.
+
 ### Final Testing
 
 | Test ID | Area                    | Action Taken / Device Tested                         | Expected Outcome                            | Actual Outcome    | Pass/Fail |

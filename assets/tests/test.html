@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>Scale Formula Test</title>
+<script>
+  function scale(origAmt, origServ, newServ) {
+    return (origAmt / origServ) * newServ;
+  }
+  function assertNear(actual, expected, eps = 1e-6) {
+    if (Math.abs(actual - expected) > eps)
+      throw Error(`${actual} != ${expected}`);
+  }
+
+  try {
+    assertNear(scale(200, 4, 6), 300);
+    assertNear(scale(75, 3, 1), 25);
+    assertNear(scale(0.5, 2, 5), 1.25);
+    document.body.textContent = "All tests passed";
+  } catch (e) {
+    document.body.textContent = "Test failed" + e.message;
+    document.body.style.color = "red";
+  }
+</script>
