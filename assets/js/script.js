@@ -17,49 +17,51 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   addInitialIngredient();
 
+  let errorTimeoutId = null;
 
-let errorTimeoutId = null;
-
-function showError(message, invalidInputs = []) {
-  const errorDiv = document.getElementById("error-message");
-
-  if (errorDiv) {
-    // Force Bootstrap’s red alert every time
-    errorDiv.className = "alert alert-danger mb-3";
-    errorDiv.textContent = message;
-  } else {
-    // Fallback if container is missing
-    alert(message);
+  function ensureErrorRegion() {
+    let el = document.getElementById("error-message");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "error-message";
+      el.setAttribute("role", "alert");
+      el.setAttribute("aria-live", "assertive");
+      el.className = "visually-hidden";
+      (document.querySelector("main") || document.body).prepend(el);
+    }
+    return el;
   }
 
-  // Highlight invalid inputs
-  invalidInputs.forEach((input) => {
-    if (input) {
-      input.style.borderColor = "red";
-      input.style.boxShadow = "0 0 8px rgba(255, 0, 0, 0.6)";
-    }
-  });
+  function showError(message, invalidInputs = [], { autoHideMs = 5000 } = {}) {
+    const el = ensureErrorRegion();
+    el.textContent = message || "Something went wrong.";
+    el.classList.remove("visually-hidden");
+    el.classList.add("alert", "alert-danger", "mb-3");
+    el.setAttribute("tabindex", "-1");
+    el.focus({ preventScroll: true });
 
-  // Clear after 4s
-  if (errorTimeoutId) clearTimeout(errorTimeoutId);
-  errorTimeoutId = setTimeout(() => {
-    if (errorDiv) {
-      errorDiv.textContent = "";
-      errorDiv.className = "mb-3"; // keep spacing, remove alert styling
-    }
-    invalidInputs.forEach((input) => {
-      if (input) {
-        input.style.borderColor = "";
-        input.style.boxShadow = "";
-      }
-    });
-    errorTimeoutId = null;
-  }, 4000);
-}
+    invalidInputs.forEach(
+      (input) => input && input.classList.add("is-invalid")
+    );
+
+    if (errorTimeoutId) clearTimeout(errorTimeoutId);
+    errorTimeoutId = setTimeout(() => {
+      el.textContent = "";
+      el.classList.add("visually-hidden");
+      el.classList.remove("alert", "alert-danger");
+      el.removeAttribute("tabindex");
+      invalidInputs.forEach(
+        (input) => input && input.classList.remove("is-invalid")
+      );
+      errorTimeoutId = null;
+    }, autoHideMs);
+  }
 
   function addIngredient() {
     const ingredientsList = document.getElementById("ingredients-list");
-    const lastIngredient = ingredientsList.querySelector(".ingredient:last-child");
+    const lastIngredient = ingredientsList.querySelector(
+      ".ingredient:last-child"
+    );
 
     if (!lastIngredient) {
       const newRow = document.createElement("div");
@@ -123,10 +125,9 @@ function showError(message, invalidInputs = []) {
       const newInput = document.getElementById("new-servings");
 
       if (isNaN(originalServings) || originalServings <= 0) {
-        showError(
-          "Please enter a valid original number of servings.",
-          [originalInput]
-        );
+        showError("Please enter a valid original number of servings.", [
+          originalInput,
+        ]);
         return;
       }
 
@@ -184,12 +185,7 @@ function showError(message, invalidInputs = []) {
   // New: block 'e', 'E', '+', '-' in number inputs
   ["original-servings", "new-servings"].forEach(function (id) {
     document.getElementById(id).addEventListener("keydown", function (e) {
-      if (
-        e.key === "e" ||
-        e.key === "E" ||
-        e.key === "+" ||
-        e.key === "-"
-      ) {
+      if (e.key === "e" || e.key === "E" || e.key === "+" || e.key === "-") {
         e.preventDefault();
       }
     });
@@ -229,7 +225,8 @@ function showError(message, invalidInputs = []) {
     fish: "Cook fish to an internal temperature of 145°F (63°C).",
     rice: "Rinse rice before cooking to remove excess starch.",
     pasta: "Salt pasta water generously for better flavor.",
-    beans: "Soak beans overnight to reduce cooking time and improve digestibility.",
+    beans:
+      "Soak beans overnight to reduce cooking time and improve digestibility.",
     lentils: "Rinse lentils to remove any debris before cooking.",
     spinach: "Wilt spinach quickly to retain its nutrients and color.",
     broccoli: "Steam broccoli to keep it crisp and vibrant green.",
@@ -238,7 +235,8 @@ function showError(message, invalidInputs = []) {
     cucumber: "Chill cucumbers before serving for a refreshing crunch.",
     avocado: "Use ripe avocados for the best texture and flavor.",
     yogurt: "Use Greek yogurt for a thicker, creamier texture.",
-    cheese: "Let cheese come to room temperature before serving for better flavor.",
+    cheese:
+      "Let cheese come to room temperature before serving for better flavor.",
     wine: "Use wine that you would enjoy drinking for the best flavor in cooking.",
     beer: "Choose a beer that complements the dish's flavors.",
     chili: "Adjust chili quantity based on your heat preference.",
@@ -251,18 +249,21 @@ function showError(message, invalidInputs = []) {
     parsley: "Chop parsley finely to release its flavor.",
     thyme: "Thyme is great for slow-cooked dishes and roasts.",
     rosemary: "Use rosemary sparingly as it has a strong flavor.",
-    sage: "Sage pairs well with rich, fatty foods like pork and sausage.", 
+    sage: "Sage pairs well with rich, fatty foods like pork and sausage.",
     nutmeg: "A little nutmeg goes a long way in enhancing flavors.",
     cloves: "Cloves have a strong flavor; use them sparingly.",
-    cardamom: "Cardamom adds a unique, aromatic flavor to both sweet and savory dishes.",
+    cardamom:
+      "Cardamom adds a unique, aromatic flavor to both sweet and savory dishes.",
     coconut: "Use coconut milk for a creamy texture in curries and desserts.",
     almond: "Toasted almonds add a nice crunch and flavor to dishes.",
-    walnut: "Walnuts can add a rich, earthy flavor to both sweet and savory recipes.",
+    walnut:
+      "Walnuts can add a rich, earthy flavor to both sweet and savory recipes.",
     pecan: "Pecans are great for adding texture and flavor to baked goods.",
     pistachio: "Pistachios add a unique flavor and vibrant color to desserts.",
     sesame: "Toasted sesame seeds add a nutty flavor and crunch.",
     soy: "Use low-sodium soy sauce to control salt levels in dishes.",
-    vinegar: "Different vinegars add distinct flavors; choose based on the dish.",
+    vinegar:
+      "Different vinegars add distinct flavors; choose based on the dish.",
     mustard: "Dijon mustard adds a tangy, sophisticated flavor.",
     ketchup: "Ketchup can add sweetness and tang to sauces and marinades.",
     mayonnaise: "Use mayonnaise to add creaminess to sandwiches and salads.",
